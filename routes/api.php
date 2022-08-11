@@ -15,9 +15,10 @@ use App\Http\Controllers\Api\ApiPetsController;
 |
 */
 
+/* Rota para retornar dados com requisições API */
+Route::resource('pets', ApiPetsController::class);
+
+/* Rotas do Middleware - Jetstream */
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-/* Rota para retornar dados com requisições API */
-Route::resource('pets', ApiPetsController::class);

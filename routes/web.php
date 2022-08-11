@@ -24,6 +24,14 @@ Route::post('/pets/store', [PetsController::class, 'store'])->middleware('auth')
 Route::put('/pets/update/{id}', [PetsController::class, 'update'])->middleware('auth');
 Route::delete('/pets/delete/{id}', [PetsController::class, 'destroy'])->middleware('auth');
 
+/* Rotas para a administração financeira */
+Route::get('financeiros/datatable', [FinanceirosController::class, 'dataTable'])->middleware('auth');
+Route::get('financeiros/datatable/{id}', [FinanceirosController::class, 'dataTableID'])->middleware('auth');
+Route::post('/financeiros/store', [FinanceirosController::class, 'store'])->middleware('auth');
+Route::put('/financeiros/atualizarDados/{id}', [FinanceirosController::class, 'update'])->middleware('auth');
+Route::delete('/financeiros/destroy/{id}', [FinanceirosController::class, 'destroy'])->middleware('auth');
+
+/* Rotas do Middleware - Jetstream */
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -33,10 +41,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-/* Rotas para a administração financeira */
-Route::get('financeiros/datatable', [FinanceirosController::class, 'dataTable'])->middleware('auth');
-Route::get('financeiros/datatable/{id}', [FinanceirosController::class, 'dataTableID'])->middleware('auth');
-Route::post('/financeiros/store', [FinanceirosController::class, 'store'])->middleware('auth');
-Route::put('/financeiros/atualizarDados/{id}', [FinanceirosController::class, 'update'])->middleware('auth');
-Route::delete('/financeiros/destroy/{id}', [FinanceirosController::class, 'destroy'])->middleware('auth');
