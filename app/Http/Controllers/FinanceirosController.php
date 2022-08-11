@@ -1,17 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Financeiro;
 
 class FinanceirosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $financeiro = Financeiro::all();
@@ -26,12 +20,6 @@ class FinanceirosController extends Controller
         return response()->json(['dados' => Financeiro::findOrFail($id)]);        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         // Tratamento de Arquivo
@@ -50,28 +38,9 @@ class FinanceirosController extends Controller
             $financeiro->name = $obterDados->financeiro->name;            
             $financeiro->description = $obterDados->financeiro->description;            
             $financeiro->gasto_1 = $obterDados->financeiro->gasto_1;
-            
-            if($obterDados->financeiro->gasto_2){
-                $financeiro->gasto_2 = $obterDados->financeiro->gasto_2;  
-            }
-            else{
-                $financeiro->gasto_2 = 0;
-            }
-            
-            if($obterDados->financeiro->gasto_3){
-                $financeiro->gasto_3 = $obterDados->financeiro->gasto_3;    
-            }    
-            else{
-                $financeiro->gasto_3 = 0;
-            }       
-            
-            if($obterDados->financeiro->gasto_4){
-                $financeiro->gasto_4 = $obterDados->financeiro->gasto_4;  
-
-            }
-            else{
-                $financeiro->gasto_4 = 0;
-            }
+            $financeiro->gasto_2 = FinanceirosController::verificarGastos($obterDados->financeiro->gasto_2);
+            $financeiro->gasto_3 = FinanceirosController::verificarGastos($obterDados->financeiro->gasto_3);
+            $financeiro->gasto_4 = FinanceirosController::verificarGastos($obterDados->financeiro->gasto_4);
 
             if($financeiro->save()){
                 return response()->json(['resposta' => "O registro foi inserido com sucesso.", 'title' => 'Cadastrado!', 'tema' => 'success']);
@@ -84,60 +53,38 @@ class FinanceirosController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function verificarGastos($requerimento){
+        
+        $naoPermitidos = array(null, "", "null");
+        
+        if(in_array($requerimento, $naoPermitidos))
+        {
+            return '0';
+        }
+        else
+        {
+            return $requerimento;
+        }
+    }
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        if(!($request->gasto_2 == 'null') and !($request->gasto_3 == 'null') and !($request->gasto_4 == 'null')){
-            Financeiro::findOrFail($id)->update($request->all());
-        }
-        else
-        {
-            $dados = $request->all();
-            if($request->gasto_2 == "null")
-            {
-                $dados['gasto_2'] = 0;
-            }
-            if($request->gasto_3 == "null")
-            {
-                $dados['gasto_3'] = 0;
-            }
-            if($request->gasto_4 == "null")
-            {
-                $dados['gasto_4'] = 0;
-            }
-
-            Financeiro::findOrFail($id)->update($dados);
-        }
+        $dados = $request->all();
+        $dados['gasto_2'] = FinanceirosController::verificarGastos($request->gasto_2);
+        $dados['gasto_3'] = FinanceirosController::verificarGastos($request->gasto_3);
+        $dados['gasto_4'] = FinanceirosController::verificarGastos($request->gasto_4);
+        Financeiro::findOrFail($id)->update($dados);
         return response()->json(['resposta' => "O registro foi atualizado com sucesso.", 'title' => 'Atualizado!', 'tema' => 'success']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Financeiro::findOrFail($id)->delete();
         return response()->json(['resposta' => "O registro foi apagado com sucesso.", 'title' => 'Excluído!', 'tema' => 'success']);
-
     }
 }
