@@ -22,55 +22,51 @@
     <title>@yield('title')</title>
 </head>
 
-<body style="overflow-x: hidden;">
+<body>
+    
     {{-- Cabeçalho --}}
     <header>
         <div class="header">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="/">OngSoft</a>
+                        <a class="navbar-brand" href="/">OngSoft</a>                        
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <form class="navbar-form navbar-left" action="/" role="search">
                             <div class="form-group">
                             <input type="text" name="search" class="form-control" placeholder="Pesquisar">
                             </div>
-                            <button type="submit" class="btn btn-default"><span style="color: black;" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                         </form>
                         @auth
                             <ul class="nav navbar-nav">
+                                <li><a href="/user/profile"><span id="icon-nav" class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuário</a></li>
+                            </ul>
+
+                            <ul class="nav navbar-nav">
+                                <li><a href="/dashboard"><span id="icon-nav" class="glyphicon glyphicon-usd" aria-hidden="true"></span> Financeiro</a></li>
+                            </ul>
+
+                            <ul class="nav navbar-nav">
+                                <li><a href="/pets/create"><span id="icon-nav" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Pet</a></li>
+                            </ul>
+
+                            <ul class="nav navbar-nav">
                                 <form action="logout" method="post">
                                     @csrf
-                                    <li><a href="logout" onclick="event.preventDefault();this.closest('form').submit();"><span style="color: rgb(112, 13, 13); margin-top: 15px;" class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+                                    <li><a href="logout" onclick="event.preventDefault();this.closest('form').submit();"><button type="button" id="btn-nav-logout">Sair</button></a></li>
                                 </form>
-                            </ul>
-
-                            <ul class="nav navbar-nav">
-                                <li><a href="/user/profile"><span style="color: black;" class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
-                            </ul>
-
-                            <ul class="nav navbar-nav">
-                                <li><a href="/dashboard"><span style="color: black;" class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-                            </ul>
-
-                            <ul class="nav navbar-nav">
-                                <li><a href="/pets/create"><span style="color: black;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
                             </ul>
                         @endauth
 
                         @guest
                             <ul class="nav navbar-nav">
-                                <li><a href="/login"><span style="color: rgb(32, 173, 19);" class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+                                <li><a href="/login"><span id="icon-nav" class="glyphicon glyphicon-user" aria-hidden="true"></span>  Entrar</a></li>
                             </ul>
+
                             <ul class="nav navbar-nav">
-                                <li><a href="/register"><span style="color: rgb(32, 173, 19);" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></li>
+                                <li><a href="/register"><span id="icon-nav" class="glyphicon glyphicon-user" aria-hidden="true"></span> Cadastrar-se</a></li>
                             </ul>
                         @endguest
                     </div>
