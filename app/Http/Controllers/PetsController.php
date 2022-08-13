@@ -14,10 +14,10 @@ class PetsController extends Controller
         $search = request('search');
         if($search)
         {
-            $pets = Pet::where('name', 'like', '%'.$search.'%')->get();
+            $pets = Pet::where('name', 'like', '%'.$search.'%')->paginate(3);
         }else
         {
-            $pets = Pet::all();
+            $pets = Pet::paginate(3);
         }
 
         return view('welcome', ['pets' => $pets]);

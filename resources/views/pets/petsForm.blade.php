@@ -6,8 +6,7 @@
 
 
     <div class="imgLayout">
-        <img src="/img/layout/DogType.jpg" alt="" srcset="">
-        <p style="margin-right: 60%; float: right; margin-top: 5px;"><a href="http://br.pinterest.com/pin/542050505127501787/" target="_blank" rel="noopener noreferrer">Fonte: Pinterest</a></p>
+        <img src="/img/layout/undraw_cautious_dog_q-83-f.svg" alt="" srcset="">
     </div>
 
     <form action="/pets/store" class="formPet" method="post" enctype="multipart/form-data">

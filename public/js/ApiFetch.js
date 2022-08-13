@@ -5,6 +5,10 @@ O token serve como uma numeração, uma ficha para mais segurança
 nos meios digitais quando pensamos em formulários
 */
 
+window.onload = function() {
+    dataTable();
+}
+
 /* Trazendo dados para a tabela */
 function dataTable()
 {    
