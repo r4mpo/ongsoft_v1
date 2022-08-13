@@ -48,7 +48,7 @@
                         <ion-icon name="information-circle"></ion-icon>
                     </span>
                 </div>
-                <textarea name="description" class="form-control" placeholder="Descrição (...)" aria-label="With textarea"></textarea>
+                <textarea name="description" maxlength="124" class="form-control" placeholder="Descrição (até  caracteres)" aria-label="With textarea"></textarea>
             </div>
             
             <span class="input-group">

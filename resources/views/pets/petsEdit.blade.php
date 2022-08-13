@@ -51,7 +51,7 @@
                         <ion-icon name="information-circle"></ion-icon>
                     </span>
                 </div>
-                <textarea name="description" class="form-control" placeholder="Descrição (...)" aria-label="With textarea">{{ $pet->description }}</textarea>
+                <textarea name="description" maxlength="124" class="form-control" placeholder="Descrição (...)" aria-label="With textarea">{{ $pet->description }}</textarea>
             </div>
             
             <span class="input-group">
