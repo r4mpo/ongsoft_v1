@@ -15,7 +15,7 @@
                     <div class="polaroid">
                         <img class="photo" src="/img/uploads/{{ $pet->image }}" alt="">
                         <div class="caption">
-                            <h2>{{ $pet->name }}</h2>
+                            <a href="/pets/show/{{ $pet->id }}"><h2>{{ $pet->name }}</h2></a>
                             <p>{{ $pet->description }}</p>
                         </div>
                         @auth
@@ -23,6 +23,7 @@
                                 @csrf
                                 @method('delete')
                                 <span id="btnExcluir" class="glyphicon glyphicon-trash" onclick="event.preventDefault();this.closest('form').submit();" aria-hidden="true"></span>  
+                                <a href="/pets/edit/{{ $pet->id }}"><span id="btnEditar" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                             </form> 
                         @endauth                
                     </div> 
