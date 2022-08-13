@@ -18,14 +18,19 @@
                             <a href="/pets/show/{{ $pet->id }}"><h2>{{ $pet->name }}</h2></a>
                             <p>{{ $pet->description }}</p>
                         </div>
+
+                        {{-- Verificamos se o usuário está logado e se está autorizado --}}
                         @auth
-                            <form action="/pets/delete/{{ $pet->id }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <span id="btnExcluir" class="glyphicon glyphicon-trash" onclick="event.preventDefault();this.closest('form').submit();" aria-hidden="true"></span>  
-                                <a href="/pets/edit/{{ $pet->id }}"><span id="btnEditar" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                            </form> 
-                        @endauth                
+                            @can('Administrador')
+                                <form action="/pets/delete/{{ $pet->id }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <span id="btnExcluir" class="glyphicon glyphicon-trash" onclick="event.preventDefault();this.closest('form').submit();" aria-hidden="true"></span>  
+                                    <a href="/pets/edit/{{ $pet->id }}"><span id="btnEditar" class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                </form> 
+                            @endcan
+                        @endauth    
+                                    
                     </div> 
                 </div>  
             </div> 

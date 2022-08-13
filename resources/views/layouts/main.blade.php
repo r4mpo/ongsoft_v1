@@ -38,14 +38,22 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="/user/profile"><span id="icon-nav" class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuário</a></li>
                             </ul>
+                            @can('Administrador')
 
-                            <ul class="nav navbar-nav">
-                                <li><a href="/dashboard"><span id="icon-nav" class="glyphicon glyphicon-usd" aria-hidden="true"></span> Financeiro</a></li>
-                            </ul>
+                                {{-- 
+                                    Níveis de Permissão definidos com https://spatie.be/docs/laravel-permission/v4/introduction
+                                    Esta biblioteca facilita a criação dos níveis de acesso.
+                                    Para mais informações https://www.youtube.com/watch?v=DRoHS8Rd6Po
+                                --}}
 
-                            <ul class="nav navbar-nav">
-                                <li><a href="/pets/create"><span id="icon-nav" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Pet</a></li>
-                            </ul>
+                                <ul class="nav navbar-nav">
+                                    <li><a href="/dashboard"><span id="icon-nav" class="glyphicon glyphicon-usd" aria-hidden="true"></span> Financeiro</a></li>
+                                </ul>
+
+                                <ul class="nav navbar-nav">
+                                    <li><a href="/pets/create"><span id="icon-nav" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar Pet</a></li>
+                                </ul>
+                            @endcan
 
                             <ul class="nav navbar-nav">
                                 <form action="logout" method="post">
