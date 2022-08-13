@@ -7,10 +7,10 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Título</th>
-            <th scope="col">Despesa (R$)</th>
-            <th scope="col">Despesa (R$)</th>
-            <th scope="col">Despesa (R$)</th>
-            <th scope="col">Despesa (R$)</th>
+            <th scope="col">Gasto (R$)</th>
+            <th scope="col">Gasto (R$)</th>
+            <th scope="col">Gasto (R$)</th>
+            <th scope="col">Gasto (R$)</th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>

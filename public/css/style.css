@@ -20,12 +20,16 @@
     margin-left: 9px;
 }
 
+.table {
+    font-size: 12px;
+    text-align: center;
+}
 
 .formPet {
     width: 255px;
     float: right;
     margin-right: 30%;
-    margin-top: -358px;
+    margin-top: -290px;
 }
 
 .imgLayout img {
@@ -78,4 +82,8 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+#btnExcluir {
+    color: rgb(241, 0, 0);
 }

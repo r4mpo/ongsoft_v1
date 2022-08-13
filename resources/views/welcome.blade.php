@@ -18,6 +18,13 @@
                             <h2>{{ $pet->name }}</h2>
                             <p>{{ $pet->description }}</p>
                         </div>
+                        @auth
+                            <form action="/pets/delete/{{ $pet->id }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <span id="btnExcluir" class="glyphicon glyphicon-trash" onclick="event.preventDefault();this.closest('form').submit();" aria-hidden="true"></span>  
+                            </form> 
+                        @endauth                
                     </div> 
                 </div>  
             </div> 
