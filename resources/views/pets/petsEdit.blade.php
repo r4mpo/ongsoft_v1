@@ -1,5 +1,5 @@
 @extends('layouts.mainPet')
-@section('titlePet', "Cadastrar Pet - OngSoft")
+@section('titlePet', "Editar: " . $pet->name)
 @section('contentPet')
 
     <div class="container">
