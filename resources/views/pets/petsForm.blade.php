@@ -2,102 +2,76 @@
 @section('titlePet', "Cadastrar Pet - OngSoft")
 @section('contentPet')
 
-    <div class="container">
+    <form action="/pets/store" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="container">
 
-        <div class="form-image">
-            <img src="/img/layout/undraw_cautious_dog_q-83-f.svg" alt="">
-        </div>
+            <div class="img">
+                <!--  -->
+            </div>
 
-        <form action="/pets/store" class="form" method="post" enctype="multipart/form-data">
-            @csrf
+            <div class="form">
+                <div class="CamposDeTexto">
+                    <input type="text" class="CampoDeTexto" onchange="disabledCb()" placeholder="Digite o ID (...)"  name="id" id="IdCampo">
+                    <input type="checkbox" onclick="geracaoAutomatica()" id="cbId">
+                    <input type="text" class="CampoDeTexto" placeholder="Digite o nome (...)" name="name">
+                    <input type="text" class="CampoDeTexto" placeholder="Digite a idade (...)" name="age">
+                    <textarea class="CampoDeTexto" name="description" placeholder="Digite uma descrição (...)" maxlength="124" cols="21" rows="5"></textarea>
+                </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <input type="checkbox" id="cbId" onclick="geracaoAutomatica()"
-                            aria-label="Checkbox for following text input">
+                <div class="details">
+
+                    <div class="GrupoDeCheckBox">
+                        <input type="checkbox" name="details[]" id="Carinhoso" value="Carinhoso" aria-label="...">
+                        <label for="Carinhoso">Carinhoso</label>
+                        <input type="checkbox" name="details[]" id="Sociavel" value="Sociável" aria-label="...">
+                        <label for="Sociavel">Sociável</label>
+                        <input type="checkbox" name="details[]" id="Docil" value="Dócil" aria-label="...">
+                        <label for="Docil">Dócil</label>
                     </div>
-                </div>
-                <input type="number" onchange="disabledCb()" id="IdCampo" name="id" required class="form-control"
-                    placeholder="ID" aria-label="Text input with checkbox">
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
-                        <ion-icon name="fish"></ion-icon>
+        
+                    <div class="GrupoDeCheckBox">
+                        <input type="checkbox" name="details[]" id="Adestrado" value="Adestrado" aria-label="...">
+                        <label for="Adestrado">Adestrado</label>
+                        <input type="checkbox" name="details[]" id="Protetor" value="Protetor" aria-label="...">
+                        <label for="Protetor">Protetor</label>
+                        <input type="checkbox" name="details[]" id="Pedigree" value="Pedigree" aria-label="...">
+                        <label for="Pedigree">Pedigree</label>
                     </span>
+        
+                    <div class="GrupoDeCheckBox">
+                        <input type="checkbox" name="details[]" id="Manso" value="Manso" aria-label="...">
+                        <label for="Manso">Manso</label>
+                        <input type="checkbox" name="details[]" id="Brincalhao" value="Brincalhão"
+                            aria-label="...">
+                        <label for="Brincalhao">Brincalhão</label>
+                        <input type="checkbox" name="details[]" id="Castrado" value="Castrado" aria-label="...">
+                        <label for="Castrado">Castrado</label>
+                    </div>        
+
                 </div>
-                <input type="text" required class="form-control" placeholder="Nome" aria-label="Nome"
-                    aria-describedby="basic-addon1" name="name">
-            </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
-                        <ion-icon name="calendar-number"></ion-icon>
-                    </span>
+                <div class="arquivo">
+                    <input type="file" name="image" id="image">
                 </div>
-                <input type="number" step="0.01" required class="form-control" placeholder="Idade" aria-label="Idade"
-                    aria-describedby="basic-addon1" name="age">
-            </div>
 
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <ion-icon name="information-circle"></ion-icon>
-                    </span>
+                <div class="CampoDoBtn">
+                    <button type="submit" class="Botao">Cadastrar</button>
                 </div>
-                <textarea name="description" maxlength="124" class="form-control" placeholder="Descrição (até  caracteres)" aria-label="With textarea"></textarea>
-            </div>
-            
-            <span class="input-group">
-                <input type="checkbox" name="details[]" id="Carinhoso" value="Carinhoso" aria-label="...">
-                <label for="Carinhoso" class="lbl_1">Carinhoso</label>
-                <input type="checkbox" class="cb_1" name="details[]" id="Sociavel" value="Sociável" aria-label="...">
-                <label for="Sociavel" class="lbl_1">Sociável</label>
-                <input type="checkbox" name="details[]" class="cb_1" id="Docil" value="Dócil" aria-label="...">
-                <label for="Docil" class="lbl_1">Dócil</label>
-            </span>
 
-            <span class="input-group" id="CheckBoxes_2">
-                <input type="checkbox" name="details[]" id="Adestrado" value="Adestrado" aria-label="...">
-                <label for="Adestrado" class="lbl_1">Adestrado</label>
-                <input type="checkbox" name="details[]" class="cb_1" id="Protetor" value="Protetor" aria-label="...">
-                <label for="Protetor" class="lbl_1">Protetor</label>
-                <input type="checkbox" name="details[]" class="cb_1" id="Pedigree" value="Pedigree" aria-label="...">
-                <label for="Pedigree" class="lbl_1">Pedigree</label>
-            </span>
+                <div class="CampoDoBtn">
+                    <a href="/"><button type="button" class="BotaoAzul">Retornar</button></a>
+                </div>
 
-            <span class="input-group" id="CheckBoxes_3">
-                <input type="checkbox" name="details[]" id="Manso" value="Manso" aria-label="...">
-                <label for="Manso" class="lbl_1">Manso</label>
-                <input type="checkbox" name="details[]" class="cb_1" id="Brincalhao" value="Brincalhão"
-                    aria-label="...">
-                <label for="Brincalhao" class="lbl_1">Brincalhão</label>
-                <input type="checkbox" name="details[]" id="Castrado" class="cb_1" value="Castrado" aria-label="...">
-                <label for="Castrado" class="lbl_1">Castrado</label>
-            </span>
+            </div>
 
-            <div class="typeFile">
-                <input type="file" name="image" id="image">
-            </div>
-            
-            <button type="submit" id="btnCadastrar" class="btn btn-success btn-lg btn-block">Cadastrar</button>
-            
-            <div class="row">
-                <a href="/">
-                    <ion-icon name="return-down-back"></ion-icon>
-                </a>
-                <ion-icon onclick="infoAlert()" name="help-circle"></ion-icon>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 
     {{-- Sweet Alert --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     {{-- JavaScript --}}
     <script src="/js/formScript.js"></script>
-    
+
 @endsection

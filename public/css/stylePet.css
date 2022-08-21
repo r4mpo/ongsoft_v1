@@ -1,72 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo:ital@1&display=swap');
-body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #0c0ce94d;
-}
-
-.container {
-    width: 80%;
-    height: 80vh;
-    display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
-}
-
-.form-image {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fde3a7d7;
-    padding: 1rem;
-}
-
-.form-image img {
-    width: 31rem;
+.img {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 230px;
+    background-image: url('/img/layout/dog.jpeg');
+    background-position: center;
 }
 
 .form {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    padding: 3rem;
+    border: 1px solid black;
+    display: inline-block;
+    height: 460px;
+    width: 400px;
+    overflow: auto;
+    position: fixed;
+    background-color: white;
 }
 
-#btnCadastrar {
+.container {
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+.CamposDeTexto {
+    margin-left: 115px;
+    display: block;
     margin-top: 15px;
 }
 
-.lbl_1 {
-    margin-left: 10px;
+.CampoDeTexto {
+    border-radius: 7px;
+    border: 1px solid rgb(12, 0, 54);
+    outline-color: rgb(86, 46, 231);
+    padding: 5px;
 }
 
-.cb_1 {
-    margin-left: 5px;
+body {
+    background-color: rgb(27, 0, 77);
 }
 
-.info {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    padding: 3rem;
-    font-family: 'Lobster', cursive;
-    font-size: 14px;
+.CampoDeTexto:focus {
+    padding: 7px;
 }
 
-#description {
-    font-family: 'Exo', sans-serif;
-    background-color: azure;
-    width: 300px;
-    text-align: justify;
-    margin-top: 7px;
+.CampoDeTexto::placeholder {
+    color: rgb(29, 1, 105);
+}
+
+.Botao {
+    border-radius: 6px;
+    background-color: rgb(2, 63, 2);
+    border: 1px double rgb(235, 235, 235);
+    color: white;
+    padding: 7px;
+}
+
+.BotaoAzul {
+    border-radius: 6px;
+    background-color: rgb(89, 38, 209);
+    border: 1px double rgb(235, 235, 235);
+    color: white;
+    height: 30px;
+    width: 76px;
+    margin-top: -5px;
+}
+
+.Botao:hover {
+    opacity: 0.5;
+}
+
+.CampoDoBtn {
+    margin-left: 110px;
+    display: block;
+    margin-top: 15px;
+}
+
+.details {
+    display: inline-block;
+    margin-left: 85px;
 }

@@ -55,7 +55,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
 
         /* Controlando Acesso nas Rotas */
-        /* Mais informações ->  */
+        /* Mais informações -> https://spatie.be/docs/laravel-permission/v4/basic-usage/middleware#a-idcontent-package-middleware-1-hrefcontent-package-middleware-1-classanchor-link-aria-hiddentrue-titlepermalinkaa-idcontent-package-middleware-hrefcontent-package-middleware-classanchor-link-aria-hiddentrue-titlepermalinkapackage-middleware */
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,

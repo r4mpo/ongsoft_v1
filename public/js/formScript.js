@@ -42,6 +42,7 @@ function disabledCb(){
 
 // Contabilizando checkbox selecionados
 // com exceção do ID automático!
+
 $('html').mouseover(function() {
     
     var checkBoxes = document.querySelectorAll("input[type=checkbox]"); // Todos checkboxes do DOM
@@ -85,11 +86,3 @@ $('html').mouseover(function() {
         )
     }
 })
-
-function infoAlert(){
-    Swal.fire(
-        'Instruções',
-        'Você deve preencher o id do pet (ou marcar o check, para gerar automaticamente), nome e idade (apenas em números). Após isso, descreva-o e atribua algumas características ao mesmo.',
-        'info'
-    )
-}
