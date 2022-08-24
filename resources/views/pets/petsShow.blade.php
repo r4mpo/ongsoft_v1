@@ -4,13 +4,13 @@
 
     <div class="container">
 
-        <div class="img" style="background-image: url('/img/uploads/{{ $pet->image }}')">
+        <div class="img" style="background-image: url('/img/uploads/{{ $pet->image }}'); background-size: 100%;">
             <!--  -->
         </div>
 
-        <div class="form" style="text-align: center">
+        <div class="info" style="text-align: center">
             <h2>Nome: {{ $pet->name }}</h2>
-            <h2>Idade: {{ $pet->age }} @if($pet->age > 1)anos @else ano @endif</h2>
+            <p>Idade: {{ $pet->age }} @if($pet->age > 1)anos @else ano @endif</p>
             
             @foreach ($pet->details as $detail)
                 <li>{{ $detail }}</li>
@@ -20,7 +20,7 @@
 
             
             <div class="row">
-                <a href="/">Retornar</a>
+                <a href="/"><button type="button" class="BotaoAzul">Retornar</button></a>
             </div>
 
         </div>

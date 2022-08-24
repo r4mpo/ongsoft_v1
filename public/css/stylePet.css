@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+
+*{
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
 .img {
     border: 1px solid black;
     display: inline-block;
@@ -14,6 +20,16 @@
     overflow: auto;
     position: fixed;
     background-color: white;
+}
+
+.info {
+    border: 1px solid black;
+    display: inline-block;
+    height: 460px;
+    width: 400px;
+    overflow: auto;
+    position: fixed;
+    background-color: rgb(168, 230, 221);
 }
 
 .container {
@@ -51,7 +67,8 @@ body {
     background-color: rgb(2, 63, 2);
     border: 1px double rgb(235, 235, 235);
     color: white;
-    padding: 7px;
+    height: 30px;
+    width: 76px;
 }
 
 .BotaoAzul {
@@ -69,9 +86,9 @@ body {
 }
 
 .CampoDoBtn {
-    margin-left: 110px;
-    display: block;
-    margin-top: 15px;
+    margin-left: 40px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .details {

@@ -12,10 +12,10 @@
 
             <div class="form">
                 <div class="CamposDeTexto">
-                    <input type="text" class="CampoDeTexto" onchange="disabledCb()" placeholder="Digite o ID (...)"  name="id" id="IdCampo">
+                    <input type="number" class="CampoDeTexto" onchange="disabledCb()" placeholder="Digite o ID (...)"  name="id" id="IdCampo">
                     <input type="checkbox" onclick="geracaoAutomatica()" id="cbId">
                     <input type="text" class="CampoDeTexto" placeholder="Digite o nome (...)" name="name">
-                    <input type="text" class="CampoDeTexto" placeholder="Digite a idade (...)" name="age">
+                    <input type="number" class="CampoDeTexto" style="display: block;" placeholder="Digite a idade (...)" name="age">
                     <textarea class="CampoDeTexto" name="description" placeholder="Digite uma descrição (...)" maxlength="124" cols="21" rows="5"></textarea>
                 </div>
 
@@ -57,9 +57,6 @@
 
                 <div class="CampoDoBtn">
                     <button type="submit" class="Botao">Cadastrar</button>
-                </div>
-
-                <div class="CampoDoBtn">
                     <a href="/"><button type="button" class="BotaoAzul">Retornar</button></a>
                 </div>
 
